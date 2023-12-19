@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    double a, b, c;
+    double T0, T1, T2, d10, d21, d2;
+    int x;
+
+    // Ввод параметров полинома
+    scanf("%lf %lf %lf", &a, &b, &c);
+    
+    // Вычисление начальных значений
+    T0 = c;
+    T1 = a + b + c;
+    T2 = 4*a + 2*b + c;
+    d10 = T1 - T0;
+    d21 = T2 - T1;
+    d2 = d21 - d10;
+
+    // Вычисление и печать первых 100 значений полинома
+    for (x = 0; x <= 100; x++) {
+        double T = T0 + d10 * x + d2 * (x-1) * x / 2.0;
+        printf("T(%d) = %.2f\n", x, T);
+    }
+
+    return 0;
+}
